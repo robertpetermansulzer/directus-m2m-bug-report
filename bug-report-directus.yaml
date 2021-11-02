@@ -1,0 +1,28 @@
+version: '3'
+services:
+  directus:
+    container_name: bugreportdirectus
+    image: directus/directus:9.0.0-rc.99
+    ports:
+      - 8055:8055
+    volumes:
+      # By default, uploads are stored in /directus/uploads
+      # Always make sure your volumes matches the storage root when using
+      # local driver
+      - ./uploads:/directus/uploads
+      # If you want to load extensions from the host
+      - ./extensions:/directus/extensions
+      
+    environment:
+      KEY: 'yourkey'
+      SECRET: 'yoursecret'
+
+      DB_CLIENT: 'pg'
+      DB_HOST: 'database'
+      DB_PORT: '5432'
+      DB_DATABASE: 'bugreportdb'
+      DB_USER: 'testuser'
+      DB_PASSWORD: 'directus'
+
+      ADMIN_EMAIL: 'admin@example.com'
+      ADMIN_PASSWORD: 'd1r3ctu5'

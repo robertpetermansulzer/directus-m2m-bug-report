@@ -1,0 +1,23 @@
+{
+  "name": "m2m-interface-extension",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --delay 3 --watch interface.vue -x npx directus-extension build"
+  },
+  "devDependencies": {
+    "@directus/extensions-sdk": "^9.0.0-rc.100",
+    "watch": "^1.0.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "directus:extension": {
+    "type": "interface",
+    "path": "../extensions/interfaces/m2m-interface-extension/index.js",
+    "source": "index.js",
+    "host": "^9.0.0-rc.100",
+    "hidden": false
+  }
+}

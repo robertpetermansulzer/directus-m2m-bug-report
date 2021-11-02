@@ -1,0 +1,23 @@
+version: '3'
+services:
+  database:
+    container_name: bugreportdb
+    image: postgres:10
+    volumes:
+      - ./data/database:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: 'testuser'
+      POSTGRES_PASSWORD: 'directus'
+      POSTGRES_DB: 'bugreportdb'
+    ports:
+      - "5433:5432"
+
+  pgadmin:
+    container_name: bugreportcontainer
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
